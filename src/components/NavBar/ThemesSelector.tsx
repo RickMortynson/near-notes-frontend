@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react'
 import { IconType } from 'react-icons'
-import { themesList } from './themes'
+import { themesList, scheme } from './themes'
 
 const ThemesSelector = () => {
   const [colorScheme, setColorScheme] = useState('auto-scheme')
@@ -36,11 +36,11 @@ const ThemesSelector = () => {
   const SelectedThemeIcon = useMemo((): IconType => {
     switch (colorScheme) {
       case 'light-scheme':
-        return themesList.get('light-scheme')!.component
+        return (themesList.get('light-scheme') as scheme).component
       case 'dark-scheme':
-        return themesList.get('dark-scheme')!.component
+        return (themesList.get('dark-scheme') as scheme).component
       default:
-        return themesList.get('auto-scheme')!.component
+        return (themesList.get('auto-scheme') as scheme).component
     }
   }, [colorScheme])
 

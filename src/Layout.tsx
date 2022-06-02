@@ -25,8 +25,8 @@ const Layout = () => {
         })
       }
     }
-    // console.log(wallet.getAccountId())
   }, [])
+
   return (
     <div className='h-screen min-h-full bg-skin-ternary'>
       <NavBar />
