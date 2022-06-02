@@ -7,15 +7,19 @@ const ThemesSelector = () => {
   const [expandThemeSelector, setExpandThemeSelector] = useState(false)
 
   useEffect(() => {
+    console.log('in useEffect')
+
     const rootElem = document.getElementById('root') as HTMLDivElement
     rootElem.classList.add(colorScheme)
 
     if (
       colorScheme === 'dark-scheme' ||
-      window.matchMedia('(prefers-color-scheme: dark)').matches
+      (window.matchMedia('(prefers-color-scheme: dark)').matches && colorScheme === 'auto-scheme')
     ) {
       // TODO: add dark scheme setup
     } else {
+      console.log('else we go')
+
       document.body.style.background =
         getComputedStyle(rootElem).getPropertyValue('--color-bg-secondary')
     }
