@@ -55,7 +55,10 @@ const ThemesSelector = () => {
         <SelectedThemeIcon className='text-2xl text-skin-base' />
 
         {expandThemeSelector && (
-          <div className='absolute top-8 right-0 rounded-md border-slate-300 bg-skin-ternary shadow-lg ring-2 ring-slate-200'>
+          <div
+            onMouseLeave={() => setExpandThemeSelector(false)}
+            className='absolute top-8 -left-9 rounded-md border-slate-300 bg-skin-ternary shadow-lg ring-2 ring-slate-200'
+          >
             {Array.from(themesList).map(([className, value]) => {
               return (
                 <div
