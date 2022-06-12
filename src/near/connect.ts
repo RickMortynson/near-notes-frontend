@@ -1,4 +1,7 @@
 import * as nearAPI from 'near-api-js'
+import { Buffer } from 'buffer'
+
+window.Buffer = Buffer
 
 const near = new nearAPI.Near({
   headers: {},
@@ -8,7 +11,7 @@ const near = new nearAPI.Near({
   walletUrl: 'https://wallet.testnet.near.org'
 } as nearAPI.ConnectConfig)
 
-export const wallet = new nearAPI.WalletConnection(near, 'nice-prefix')
+export const wallet = new nearAPI.WalletConnection(near, 'near-wallet-control')
 
 export const connectWallet = async (): Promise<void> => {
   return await wallet.requestSignIn()

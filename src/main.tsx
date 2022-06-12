@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
-import Layout from './Layout'
-import './index.css'
 import { Inspector } from 'react-dev-inspector'
 import { store } from '@store/store'
+import Layout from '@components/Layout'
+import './index.css'
 
 const InspectorWrapper = process.env.NODE_ENV === 'development' ? Inspector : React.Fragment
 

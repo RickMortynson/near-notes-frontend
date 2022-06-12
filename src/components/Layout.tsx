@@ -3,6 +3,9 @@ import { useEffect } from 'react'
 import * as nearConnect from '@near/connect'
 import { useAppDispatch, useAppSelector } from '@store/hooks'
 import { UserSlice } from '@store/reducers/UserSlice'
+import { getTasks } from '@near/contracts/tasks'
+import { getCategories } from '@near/contracts/categories'
+import Hero from './Hero'
 
 const Layout = () => {
   const user = useAppSelector(state => state.UserSlice)
@@ -27,9 +30,15 @@ const Layout = () => {
     }
   }, [])
 
+  useEffect(() => {
+    getTasks()
+    getCategories()
+  }, [])
+
   return (
-    <div className='h-screen min-h-full bg-skin-ternary'>
+    <div className='relative bg-skin-ternary'>
       <NavBar />
+      <Hero />
     </div>
   )
 }
